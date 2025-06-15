@@ -26,6 +26,7 @@ def download_video(video_url):
 }
         # Send a GET request to the video URL
         os.system('cls')
+        print("Downloading video from: ", video_url)
         response = requests.get(video_url, headers=headers).text.replace('\\','')
         try:
             browser_native_hd_url= re.search(r'"browser_native_hd_url":"(.*?)"', response).group(1)
@@ -79,6 +80,5 @@ def index():
 
     return render_template("index.html", download_link=None)
 
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
