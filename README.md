@@ -71,6 +71,7 @@ python app.py
 Navigate to: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ---
+![image](https://github.com/user-attachments/assets/de3ceb68-7c71-41d4-b981-f555d1beacd4)
 
 ## 📝 Usage
 
@@ -81,6 +82,7 @@ Navigate to: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 > Note: Only **public** Facebook content is downloadable.
 
 ---
+![image](https://github.com/user-attachments/assets/bb331257-e25c-40a3-a8c7-bcef97cf5857)
 
 ## ⚠️ Disclaimer
 
