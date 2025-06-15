@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 import re
 import requests
 import random, string
-
 import os
 app = Flask(__name__)
+
 app.secret_key = "a3k7$#1r9!2jdlNcmwQ^z"  # Add this line!
 app.config['DOWNLOAD_FOLDER'] = 'static/downloads'
 app.config['ALLOWED_EXTENSIONS'] = {'mp4'}
@@ -40,18 +40,19 @@ def download_video(video_url):
 }
         # Send a GET request to the video URL
         # os.system('cls')
-        print("Downloading video from: ", video_url)
+        print('\033[1;33m==================================================================================')
+        print("\033[1;36mDownloading video from: \033[1;31m", video_url)
         response = requests.get(video_url, headers=headers,cookies=cookies).text.replace('\\','')
-        # open(os.path.join(app.config['DOWNLOAD_FOLDER'], 'tempss.txt'), 'w' ,encoding= 'utf-8').write(response)
+        # open(os.path.join(app.config['DOWNLOAD_FOLDER'], 'tempssxx.txt'), 'w' ,encoding= 'utf-8').write(response)
         try:
-            browser_native_hd_url= re.search(r'"browser_native_hd_url":"(.*?)"', response).group(1)
+            browser_native_hd_url= 'https://video'+re.findall(r'd_url":"https://video(.*?)"', response)[-1]
             output_file = "facebook_video.mp4"
             Fyle_type ="Video"
         except :
             browser_native_hd_url= re.search(r'"image":{"uri":"(.*?)"', response).group(1)
             output_file = "facebook_photo.jpg"
             Fyle_type ="Image"
-        print(browser_native_hd_url)
+        # print(browser_native_hd_url)
         # open('tempss.txt', 'w' ,encoding= 'utf-8').write(response)
         # Download the video
         response = requests.get(browser_native_hd_url, stream=True)
@@ -61,7 +62,7 @@ def download_video(video_url):
                 for chunk in response.iter_content(chunk_size=1024 * 1024):  # 1MB chunks
                     if chunk:
                         f.write(chunk)
-            print("✅ Download complete:", output_file)
+            print("✅ \033[1;32mDownload complete:", output_file)
             return filepath
         else:
             print("❌ Failed to download, status code:", response.status_code)
