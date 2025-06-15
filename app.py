@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 import re
 import requests
 import random, string
+
 import os
 app = Flask(__name__)
 app.secret_key = "a3k7$#1r9!2jdlNcmwQ^z"  # Add this line!
@@ -39,7 +40,6 @@ def download_video(video_url):
 }
         # Send a GET request to the video URL
         # os.system('cls')
-        print('\033[1;33m----------------------------------------------------------------------------')
         print("Downloading video from: ", video_url)
         response = requests.get(video_url, headers=headers,cookies=cookies).text.replace('\\','')
         # open(os.path.join(app.config['DOWNLOAD_FOLDER'], 'tempss.txt'), 'w' ,encoding= 'utf-8').write(response)
@@ -61,7 +61,7 @@ def download_video(video_url):
                 for chunk in response.iter_content(chunk_size=1024 * 1024):  # 1MB chunks
                     if chunk:
                         f.write(chunk)
-            print("✅ \033[1;32mDownload complete:", output_file)
+            print("✅ Download complete:", output_file)
             return filepath
         else:
             print("❌ Failed to download, status code:", response.status_code)
