@@ -11,10 +11,11 @@ app.config['ALLOWED_EXTENSIONS'] = {'mp4'}
 # Ensure download directory exists
 os.makedirs(app.config['DOWNLOAD_FOLDER'], exist_ok=True)
 print("Wellcome to my app")
-
+Fyle_type=None
 def rand_str(n): return ''.join(random.choices(string.ascii_letters + string.digits + '-_', k=n))
 def download_video(video_url):
     try:
+        global Fyle_type
         cookies = {
     'sb': rand_str(24),
     'fr': f"{rand_str(20)}.{rand_str(30)}.{rand_str(22)}..AAA.0.0.{(p:=rand_str(6))}.{rand_str(40)}",
@@ -39,16 +40,17 @@ def download_video(video_url):
 }
         # Send a GET request to the video URL
         # os.system('cls')
-        os.system('clear')
         print("Downloading video from: ", video_url)
         response = requests.get(video_url, headers=headers,cookies=cookies).text.replace('\\','')
         # open(os.path.join(app.config['DOWNLOAD_FOLDER'], 'tempss.txt'), 'w' ,encoding= 'utf-8').write(response)
         try:
             browser_native_hd_url= re.search(r'"browser_native_hd_url":"(.*?)"', response).group(1)
             output_file = "facebook_video.mp4"
+            Fyle_type ="Video"
         except :
             browser_native_hd_url= re.search(r'"image":{"uri":"(.*?)"', response).group(1)
             output_file = "facebook_photo.jpg"
+            Fyle_type ="Image"
         print(browser_native_hd_url)
         # open('tempss.txt', 'w' ,encoding= 'utf-8').write(response)
         # Download the video
@@ -69,6 +71,7 @@ def download_video(video_url):
         return None
 @app.route("/", methods=["GET", "POST"])
 def index():
+    global Fyle_type
     if request.method == "POST":
         video_url = request.form.get("video_url", "").strip()
 
@@ -90,7 +93,7 @@ def index():
         # In a real app, you would serve the actual downloaded file
         # For demo, we'll just show a success message
         # download_link = url_for('static', filename=filename)
-        flash("Video downloaded successfully!", "success")
+        flash(f"{Fyle_type} downloaded successfully!", "success")
         return render_template("index.html", download_link=filename)
 
     return render_template("index.html", download_link=None)
