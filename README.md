@@ -125,3 +125,14 @@ Made with ❤️ by \[Your Name]
 
 Let me know if you’d like a `requirements.txt`, sample `index.html`, or a logo for the top.
 ```
+---
+
+## 💼 Contact Me for Paid Projects
+
+Have a project in mind or need expert help? I'm available for **freelance work and paid collaborations**. Let's bring your ideas to life with clean code and creative solutions.
+
+📩 **Email**: [shuvobbhh@gmail.com]  
+💬 **Telegram / WhatsApp**: [+8801616397082]  
+🌐 **Portfolio / Website**: [[Portfolio](https://mahdi-hasan-shuvo.github.io/Mahdi-hasan-shuvo/)]
+
+> *"Quality work speaks louder than words. Let's build something remarkable together."*
