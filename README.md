@@ -31,17 +31,20 @@ A simple web application built with **Python Flask** that allows users to downlo
 
 facebook-video-downloader/
 │
-├── app.py                   # Main Flask app
+├
+── app.py                   # Main Flask app
 ├── templates/
+
 │   └── index.html           # HTML template
+
 ├── static/
+
 │   └── downloads/           # Downloaded video/image files
+
 ├── requirements.txt         # Python dependencies
+
 └── README.md                # Project documentation
 
-````
-
----
 
 ## ⚙️ Installation
 
