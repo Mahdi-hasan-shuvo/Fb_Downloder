@@ -48,8 +48,8 @@ facebook-video-downloader/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/facebook-video-downloader.git
-cd facebook-video-downloader
+git clone https://github.com/Mahdi-hasan-shuvo/Fb_Downloder.git
+cd Fb_Downloder
 ````
 
 ### 2. Install Dependencies
